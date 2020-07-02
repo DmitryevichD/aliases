@@ -1,0 +1,5 @@
+fa = fetch --all
+rhc = "!f() { echo "origin/$(git branch --show-current)" | xargs git reset --hard;};f"
+sa = "!f() { git stash apply stash@{$1};}; f"
+sl = stash list
+

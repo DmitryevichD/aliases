@@ -3,3 +3,5 @@ rcb = "!f() { echo "origin/$(git branch --show-current)" | xargs git reset --har
 sa = "!f() { git stash apply stash@{$1};}; f"
 sl = stash list
 ss = "!f() { git stash save "$1";}; f"
+# shows statistic about big files in user directory
+!f() { git rev-list --objects --all | git cat-file --batch-check='%(objectname) %(objecttype) %(objectsize) %(rest)' | sort -nr -k 3 | head -n 200 | column -t -s $'\t';};f

@@ -11,4 +11,4 @@
     #| perl -ne 'm#^(\w+) blob (\d+) (.+)# or next; print "$1\t$2\t$3\n";' | head -n 200 | column -t -s $'\t';};f"
 
     # shows different commits between master and develop
-    diffmd = "!f() { echo "diff master_develop" && git log --oneline --no-merges origin/master..origin/develop};f"
+    diffmd = "!f() { echo "diff master_develop" && git log --oneline --no-merges origin/master..origin/develop;};f"

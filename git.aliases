@@ -3,13 +3,12 @@
     rcb = "!f() { echo "origin/$(git branch --show-current)" | xargs git reset --hard;};f"
     sa = "!f() { git stash apply stash@{$1};}; f"
     sl = stash list
-    ss = "!f() { git stash save "$1";}; f" 
+    ss = "!f() { git stash save "$1";}; f"
     po = "!f() { echo "$(git branch --show-current)" | xargs git push --set-upstream origin;}; f"
-    
+
     # shows statistic about big files in user directory
-    sbf = "!f() { git rev-list --objects --all | git cat-file --batch-check='%(objectname) %(objecttype) %(objectsize) %(rest)' | sort -nr -k 3 | head -n 200 | column -t -s $'\t';};f" 
+    sbf = "!f() { git rev-list --objects --all | git cat-file --batch-check='%(objectname) %(objecttype) %(objectsize) %(rest)' | sort -nr -k 3 | head -n 200 | column -t -s $'\t';};f"
     #| perl -ne 'm#^(\w+) blob (\d+) (.+)# or next; print "$1\t$2\t$3\n";' | head -n 200 | column -t -s $'\t';};f"
 
     # shows different commits between master and develop
-    shmd = "!f() { echo "master_develop" && git log --oneline origin/master..origin/develop && echo "develop_master" && git log --oneline origin/master..origin/develop;};f"
-                                                                                                                                                                               
+    diffmd = "!f() { echo "diff master_develop" && git log --oneline --no-merges origin/master..origin/develop};f"

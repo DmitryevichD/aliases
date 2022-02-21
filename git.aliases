@@ -12,3 +12,6 @@
 
     # shows different commits between master and develop
     diffmd = "!f() { echo "diff master_develop" && git log --oneline --no-merges origin/master..origin/develop;};f"
+
+    # delete origin and local tag
+    dtag = "!f() { git tag -d "$1" && git push --delete origin "$1";}; f"

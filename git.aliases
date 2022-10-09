@@ -15,3 +15,9 @@
 
     # delete origin and local tag
     dtag = "!f() { git tag -d "$1" && git push --delete origin "$1";}; f"
+
+    #clone all branches
+    checkout-all = "!f() { /home/dmitrievichd/scripts/git-checkout-all-branches.sh; };f"
+
+    # content of git-checkout-all-branches.sh
+    # for remote in `git branch -r | grep -v '\->'`; do git checkout `echo "$remote" | awk -F '/' '{print $2}'`; done;
